@@ -23,3 +23,14 @@ start_date.addEventListener('change', (e) => {
     }
 });
 
+//end date change
+
+end_date.addEventListener('change', (e) => {
+    let day = new Date(e.target.value);
+
+    if (end_date.value < start_date.value) {
+        day.setDate(day.getDate() - 1);
+        start_date.value = day.toISOString().split('T')[0];
+    }
+    
+});
